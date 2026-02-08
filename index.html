@@ -1,112 +1,152 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Ananta & Me 🌹</title>
+    <meta charset="UTF-8">
+    <title>Ananta ❤️</title>
 
-<style>
-    body {
-        background: linear-gradient(135deg, #fff0f5, #ffe6eb);
-        font-family: "Poppins", "Comic Sans MS", cursive;
-        text-align: center;
-        overflow: hidden;
-    }
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Comic Sans MS', cursive, sans-serif;
+            background: linear-gradient(135deg, #ffe6f0, #fff0f5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
 
-    h1 {
-        color: #c9184a;
-        margin-top: 40px;
-        font-size: 42px;
-    }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 25px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            max-width: 380px;
+            animation: fadeIn 2s ease;
+        }
 
-    p {
-        font-size: 22px;
-        color: #e75480;
-    }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    .container {
-        margin-top: 25px;
-    }
+        img {
+            width: 260px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+            margin-bottom: 20px;
+        }
 
-    img {
-        width: 260px;
-        border-radius: 20px;
-        box-shadow: 0 10px 22px rgba(201,24,74,0.25);
-    }
+        h1 {
+            color: #d63384;
+            margin-bottom: 10px;
+        }
 
-    .buttons {
-        margin-top: 35px;
-    }
+        p {
+            font-size: 16px;
+            color: #444;
+            margin-bottom: 20px;
+        }
 
-    button {
-        font-size: 22px;
-        padding: 14px 34px;
-        border-radius: 40px;
-        border: none;
-        cursor: pointer;
-        transition: 0.3s ease;
-    }
+        h2 {
+            color: #ff4d6d;
+            margin-bottom: 25px;
+        }
 
-    #yes {
-        background: linear-gradient(135deg, #ff4d6d, #ff8fab);
-        color: white;
-        box-shadow: 0 6px 18px rgba(255,77,109,0.5);
-    }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
 
-    #yes:hover {
-        transform: scale(1.15);
-    }
+        button {
+            font-size: 18px;
+            padding: 12px 30px;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
 
-    #no {
-        background-color: #e0e0e0;
-        color: #777;
-        position: absolute;
-    }
+        .yes {
+            background: linear-gradient(45deg, #ff4d6d, #ff85a1);
+            color: white;
+            box-shadow: 0 5px 15px rgba(255,77,109,0.5);
+        }
 
-    #loveMessage {
-        display: none;
-        font-size: 30px;
-        color: #9d0208;
-        margin-top: 45px;
-        line-height: 1.5;
-    }
-</style>
+        .yes:hover {
+            transform: scale(1.1);
+            box-shadow: 0 8px 20px rgba(255,77,109,0.7);
+        }
+
+        .no {
+            background: #e0e0e0;
+            color: #999;
+            pointer-events: none;
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: absolute;
+            color: #ff4d6d;
+            font-size: 20px;
+            animation: floatUp 6s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-<h1>Ananta, will you be mine forever? 🌹</h1>
-<p>From my heart to yours — today, tomorrow, always 💖</p>
+    <div class="card">
+        <img src="Us.jpeg" alt="Us Together">
 
-<div class="container">
-    <img src="https://i.imgur.com/0Kfb9cY.png" alt="Girl holding roses for boy">
-</div>
+        <h1>Ananta ❤️</h1>
 
-<div class="buttons">
-    <button id="yes" onclick="sayYes()">YES ❤️</button>
-    <button id="no">NO 🙈</button>
-</div>
+        <p>
+            From the little moments to the big dreams,<br>
+            you mean more to me than words can say.
+        </p>
 
-<div id="loveMessage">
-    💍 He said YES 💍 <br>
-    You are my forever, Ananta 💖 <br>
-    With all my love — today & always 🌹
-</div>
+        <h2>Will you be mine forever?</h2>
 
-<script>
-    const noBtn = document.getElementById("no");
+        <div class="buttons">
+            <button class="yes" onclick="sayYes()">Yes 💖</button>
+            <button class="no">No</button>
+        </div>
+    </div>
 
-    noBtn.addEventListener("mouseover", () => {
-        const x = Math.random() * (window.innerWidth - 120);
-        const y = Math.random() * (window.innerHeight - 120);
-        noBtn.style.left = x + "px";
-        noBtn.style.top = y + "px";
-    });
+    <script>
+        function sayYes() {
+            alert("You just made me the happiest girl 💕\nForever starts now 🌹");
+        }
 
-    function sayYes() {
-        document.querySelector(".buttons").style.display = "none";
-        document.getElementById("loveMessage").style.display = "block";
-    }
-</script>
+        // Create floating hearts
+        setInterval(() => {
+            const heart = document.createElement("div");
+            heart.className = "heart";
+            heart.innerHTML = "❤️";
+            heart.style.left = Math.random() * 100 + "vw";
+            heart.style.fontSize = (Math.random() * 20 + 15) + "px";
+            document.body.appendChild(heart);
+
+            setTimeout(() => {
+                heart.remove();
+            }, 6000);
+        }, 400);
+    </script>
 
 </body>
 </html>
