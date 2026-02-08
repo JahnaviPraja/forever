@@ -3,115 +3,108 @@
 <head>
 <meta charset="UTF-8">
 <title>Forever & Ever 💖</title>
+
 <style>
     body {
-        margin: 0;
-        height: 100vh;
-        font-family: 'Comic Sans MS', cursive, sans-serif;
-        background: linear-gradient(135deg, #ffd6e8, #fff1c1);
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        background: linear-gradient(135deg, #ffd6e8, #ffeef6);
+        font-family: "Comic Sans MS", "Poppins", cursive;
         text-align: center;
-    }
-
-    .card {
-        background: white;
-        padding: 40px;
-        border-radius: 25px;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-        max-width: 400px;
+        overflow: hidden;
     }
 
     h1 {
-        color: #ff5fa2;
-        margin-bottom: 10px;
+        color: #ff4d88;
+        margin-top: 30px;
+        font-size: 42px;
     }
 
-    .couple {
-        font-size: 60px;
-        margin: 15px 0;
+    p {
+        font-size: 22px;
+        color: #ff6699;
+    }
+
+    .container {
+        margin-top: 20px;
+    }
+
+    img {
+        width: 220px;
+        margin: 10px;
     }
 
     .buttons {
         margin-top: 30px;
-        position: relative;
-        height: 80px;
     }
 
     button {
+        font-size: 22px;
         padding: 12px 28px;
-        font-size: 18px;
-        border: none;
         border-radius: 30px;
+        border: none;
         cursor: pointer;
         transition: 0.3s;
+    }
+
+    #yes {
+        background-color: #ff4d88;
+        color: white;
+        box-shadow: 0 5px 15px rgba(255,77,136,0.4);
+    }
+
+    #yes:hover {
+        transform: scale(1.1);
+    }
+
+    #no {
+        background-color: #cccccc;
+        color: #666;
         position: absolute;
     }
 
-    #yesBtn {
-        background: #ff5fa2;
-        color: white;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-
-    #yesBtn:hover {
-        background: #ff3b8d;
-        transform: translateX(-50%) scale(1.1);
-    }
-
-    #noBtn {
-        background: #ddd;
-        color: #666;
-        left: 10%;
-    }
-
-    #message {
-        margin-top: 20px;
-        font-size: 20px;
-        color: #ff5fa2;
+    #loveMessage {
         display: none;
+        font-size: 30px;
+        color: #ff3377;
+        margin-top: 30px;
     }
 </style>
 </head>
+
 <body>
 
-<div class="card">
-    <h1>Will you be mine forever & ever? 💞</h1>
+<h1>Will you be mine forever & ever? 💍💖</h1>
+<p>Bubu asks… Dudu waits nervously 🥺🐻🐼</p>
 
-    <!-- Bubu Dudu vibe -->
-    <div class="couple">🐻‍❄️💖🐼</div>
+<div class="container">
+    <img src="https://i.imgur.com/3ZQ3ZzB.png" alt="Bubu">
+    <img src="https://i.imgur.com/4AiXzf8.png" alt="Dudu">
+</div>
 
-    <div class="buttons">
-        <button id="yesBtn" onclick="sayYes()">YES 😍</button>
-        <button id="noBtn" onmouseover="moveNo()">NO 🙃</button>
-    </div>
+<div class="buttons">
+    <button id="yes" onclick="sayYes()">YES 💖</button>
+    <button id="no">NO 😜</button>
+</div>
 
-    <div id="message">
-        Yaaay!! 💕  
-        Now it’s forever. No take-backs. 🥰
-    </div>
+<div id="loveMessage">
+    💕 YAYYY!!! 💕 <br>
+    Bubu & Dudu are forever now 🐻🐼💍 <br>
+    Endless hugs, love & snacks 🍰💞
 </div>
 
 <script>
-function moveNo() {
-    const noBtn = document.getElementById("noBtn");
-    const container = document.querySelector(".buttons");
+    const noBtn = document.getElementById("no");
 
-    const maxX = container.offsetWidth - noBtn.offsetWidth;
-    const maxY = container.offsetHeight - noBtn.offsetHeight;
+    noBtn.addEventListener("mouseover", () => {
+        const x = Math.random() * (window.innerWidth - 100);
+        const y = Math.random() * (window.innerHeight - 100);
+        noBtn.style.left = x + "px";
+        noBtn.style.top = y + "px";
+    });
 
-    const randX = Math.random() * maxX;
-    const randY = Math.random() * maxY;
-
-    noBtn.style.left = randX + "px";
-    noBtn.style.top = randY + "px";
-}
-
-function sayYes() {
-    document.getElementById("message").style.display = "block";
-}
+    function sayYes() {
+        document.querySelector(".buttons").style.display = "none";
+        document.getElementById("loveMessage").style.display = "block";
+    }
 </script>
 
 </body>
