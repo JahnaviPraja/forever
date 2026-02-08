@@ -25,6 +25,7 @@
             box-shadow: 0 15px 40px rgba(0,0,0,0.2);
             max-width: 380px;
             animation: fadeIn 2s ease;
+            position: relative;
         }
 
         @keyframes fadeIn {
@@ -59,6 +60,8 @@
             display: flex;
             justify-content: center;
             gap: 20px;
+            position: relative;
+            height: 60px;
         }
 
         button {
@@ -68,6 +71,7 @@
             border: none;
             cursor: pointer;
             transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
         }
 
         .yes {
@@ -83,16 +87,15 @@
 
         .no {
             background: #e0e0e0;
-            color: #999;
-            pointer-events: none;
+            color: #777;
         }
 
         /* Floating hearts */
         .heart {
             position: absolute;
             color: #ff4d6d;
-            font-size: 20px;
             animation: floatUp 6s linear infinite;
+            pointer-events: none;
         }
 
         @keyframes floatUp {
@@ -124,7 +127,7 @@
 
         <div class="buttons">
             <button class="yes" onclick="sayYes()">Yes 💖</button>
-            <button class="no">No</button>
+            <button class="no" onmouseover="moveNo(this)">No 🙃</button>
         </div>
     </div>
 
@@ -133,7 +136,17 @@
             alert("You just made me the happiest girl 💕\nForever starts now 🌹");
         }
 
-        // Create floating hearts
+        function moveNo(btn) {
+            const x = Math.random() * 200 - 100;
+            const y = Math.random() * 200 - 50;
+
+            btn.style.transform = `translate(${x}px, ${y}px)`;
+
+            const texts = ["No", "Nice try 😏", "Arey!", "Hehe 😜", "Not happening 💀"];
+            btn.innerText = texts[Math.floor(Math.random() * texts.length)];
+        }
+
+        // Floating hearts
         setInterval(() => {
             const heart = document.createElement("div");
             heart.className = "heart";
@@ -150,6 +163,3 @@
 
 </body>
 </html>
-
-
-
